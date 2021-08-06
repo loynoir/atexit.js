@@ -1,0 +1,36 @@
+{
+  "name": "atexit",
+  "version": "1.0.0",
+  "description": "Python atexit module ship to Node.js",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.mjs",
+  "exports": {
+    ".": {
+      "node": {
+        "require": "./dist/cjs/index.js",
+        "import": "./dist/esm/index.mjs"
+      },
+      "default": "./dist/esm/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/node": "^16.4.13",
+    "esbuild": "0.12.17",
+    "exit-hook": "^2.2.1"
+  },
+  "scripts": {
+    "@esbuild": "esbuild --tsconfig=./tsconfig.esm.json --format=esm --outdir=dist/esm --out-extension:.js=.mjs",
+    "build": "npm run build:tsc:types && npm run build:esbuild:esm && npm run build:tsc:cjs",
+    "build:tsc:cjs": "tsc -p tsconfig.cjs.json",
+    "build:tsc:esm": "tsc -p tsconfig.esm.json",
+    "build:tsc:types": "npm run build:tsc:esm -- -d --emitDeclarationOnly",
+    "build:esbuild:esm": "npm run @esbuild -- index.ts",
+    "examples": "fd '' examples -x env",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "loynoir",
+  "license": "MIT"
+}
