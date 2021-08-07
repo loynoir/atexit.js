@@ -23,15 +23,19 @@ function $exit(exit, signal) {
         }
     }
     // ref: https://docs.python.org/3/library/atexit.html#atexit.register
-    // If an exception is raised during execution of the exit handlers, a traceback is printed
+    // quote: "If an exception is raised during execution of the exit handlers, a traceback is printed"
     if (lastErr) {
         console.error(lastErr);
+        // quote: " After all exit handlers have had a chance to run, the last exception to be raised is re-raised"
+        throw lastErr;
     }
     if (exit === true) {
         process.exit(128 + signal); // eslint-disable-line unicorn/no-process-exit
     }
 }
 function register(callback, ...args) {
+    // ref: https://docs.python.org/3/library/atexit.html#atexit.register
+    // quote: "It is possible to register the same function and arguments more than once"
     callLaters.unshift([callback, args]);
     if (!isRegistered) {
         isRegistered = true;
@@ -47,12 +51,15 @@ function register(callback, ...args) {
             }
         });
     }
+    // quote: "This function returns func"
+    return callback;
 }
 exports.register = register;
 function unregister(callback) {
     // ref: https://docs.python.org/3/library/atexit.html#atexit.unregister
-    // unregister() silently does nothing if func was not previously registered
+    // quote: "unregister() silently does nothing if func was not previously registered"
     callLaters.forEach((el, idx) => {
+        // quote: "Equality comparisons (==) are used internally during unregistration, so function references do not need to have matching identities"
         if (el && el[0] === callback) {
             callLaters[idx] = undefined;
         }

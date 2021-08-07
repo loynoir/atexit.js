@@ -20,6 +20,7 @@ function $exit(exit, signal) {
   }
   if (lastErr) {
     console.error(lastErr);
+    throw lastErr;
   }
   if (exit === true) {
     process.exit(128 + signal);
@@ -38,6 +39,7 @@ function register(callback, ...args) {
       }
     });
   }
+  return callback;
 }
 function unregister(callback) {
   callLaters.forEach((el, idx) => {
