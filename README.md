@@ -36,8 +36,8 @@ close outer door
 ```
 
 ```js
-// unregister
-atexit.unregiter(console.log)
+// when a cleanup function is no more needed, you can unregister it
+atexit.unregiter(cleanup_func)
 ```
 
 
@@ -48,6 +48,7 @@ If you want to control in first-in-first-out order, you may use [sindresorhus/ex
 In `atexit.js`, "it is possible to register the same function and arguments more than once", "all exit handlers have had a chance to run", just like what python standard `atexit` does.
 
 ```sh
+# Last-in-first-out
 $ examples/example_atexit.py
 borrow a space ship from 👽
 goto mars 🚀
@@ -56,6 +57,7 @@ atexit.py : wakeup on mars 🌞
 atexit.py : went back from mars 👋
 atexit.py : return a space ship ⏲
 
+# Last-in-first-out
 $ examples/example_atexit.js
 borrow a space ship from 👽
 goto mars 🚀
@@ -64,6 +66,7 @@ atexit.js : wakeup on mars 🌞
 atexit.js : went back from mars 👋
 atexit.js : return a space ship ⏲
 
+# First-in-first-out
 $ examples/example_exit-hook.js
 borrow a space ship from 👽
 goto mars 🚀
