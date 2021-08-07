@@ -48,6 +48,15 @@ If you want to control in first-in-first-out order, you may use [sindresorhus/ex
 In `atexit.js`, "it is possible to register the same function and arguments more than once", "all exit handlers have had a chance to run", just like what python standard `atexit` does.
 
 ```sh
+# First-in-first-out
+$ examples/example_exit-hook.js
+borrow a space ship from 👽
+goto mars 🚀
+one night on mars 🌙
+exit-hook : return a space ship ⏲
+exit-hook : went back from mars 👋
+exit-hook : wakeup on mars 🌞
+
 # Last-in-first-out
 $ examples/example_atexit.py
 borrow a space ship from 👽
@@ -65,15 +74,6 @@ one night on mars 🌙
 atexit.js : wakeup on mars 🌞
 atexit.js : went back from mars 👋
 atexit.js : return a space ship ⏲
-
-# First-in-first-out
-$ examples/example_exit-hook.js
-borrow a space ship from 👽
-goto mars 🚀
-one night on mars 🌙
-exit-hook : return a space ship ⏲
-exit-hook : went back from mars 👋
-exit-hook : wakeup on mars 🌞
 ```
 
 ### Related & Comparison
