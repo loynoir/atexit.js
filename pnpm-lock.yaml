@@ -1,0 +1,45 @@
+lockfileVersion: 5.3
+
+specifiers:
+  "@tsconfig/node14": ^1.0.1
+  "@types/node": ^16.4.13
+  esbuild: 0.12.17
+  exit-hook: ^2.2.1
+
+devDependencies:
+  "@tsconfig/node14": 1.0.1
+  "@types/node": 16.4.13
+  esbuild: 0.12.17
+  exit-hook: 2.2.1
+
+packages:
+  /@tsconfig/node14/1.0.1:
+    resolution:
+      {
+        integrity: sha512-509r2+yARFfHHE7T6Puu2jjkoycftovhXRqW328PDXTVGKihlb1P8Z9mMZH04ebyajfRY7dedfGynlrFHJUQCg==,
+      }
+    dev: true
+
+  /@types/node/16.4.13:
+    resolution:
+      {
+        integrity: sha512-bLL69sKtd25w7p1nvg9pigE4gtKVpGTPojBFLMkGHXuUgap2sLqQt2qUnqmVCDfzGUL0DRNZP+1prIZJbMeAXg==,
+      }
+    dev: true
+
+  /esbuild/0.12.17:
+    resolution:
+      {
+        integrity: sha512-GshKJyVYUnlSXIZj/NheC2O0Kblh42CS7P1wJyTbbIHevTG4jYMS9NNw8EOd8dDWD0dzydYHS01MpZoUcQXB4g==,
+      }
+    hasBin: true
+    requiresBuild: true
+    dev: true
+
+  /exit-hook/2.2.1:
+    resolution:
+      {
+        integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==,
+      }
+    engines: { node: ">=6" }
+    dev: true

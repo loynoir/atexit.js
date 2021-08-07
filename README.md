@@ -8,6 +8,10 @@
   
 Which means, "If you register A, B, and C, at interpreter termination time they will be run in the order C, B, A."
 
+### Installation
+```sh
+npm i loynoir/atexit.js
+```
 
 ### Usage
 ```js
@@ -78,9 +82,9 @@ atexit.js : return a space ship ⏲
 
 ### Related & Comparison
 
-- `atexit.js` - Last-in-first-out.
-
 - [sindresorhus/exit-hook](https://www.npmjs.com/package/exit-hook) - First-in-first-out.
+
+- `loynoir/atexit.js` - Last-in-first-out.
 
 - [Python atexit](https://docs.python.org/3/library/atexit.html) - Python standard library. Last-in-first-out.
 
